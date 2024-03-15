@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = 50;
+
+        if(num > 50){
+            document.write("50 초과입니다. <br>");
+        }
+        
+        num = num + 50;
+
+        console.log(num);
+        if(num <= 50){
+            document.write("50 이하입니다. <br>");
+        }
+
+        if(num > 200){
+            document.write("200 초과입니다. <br>");
+        }else if(num > 150){
+            document.write("150 초과 200 이하입니다. <br>");
+        }else{
+            document.write("150 이하입니다. <br>");
+        }
+        
+        
+        var kor = prompt("국어 : ");
+        document.write("kor : " + kor + "<br>");
+        var eng = prompt("영어 : ");
+        document.write("kor : " + eng + "<br>");
+        var math = prompt("수학 : ");
+        document.write("kor : " + math + "<br>");
+
+        var sum = Number(kor) + Number(eng) + Number(math);        
+        document.write("sum : " + sum + "<br>");
+        var avg = sum / 3.0;
+        document.write("avg : " + avg + "<br>");
+
+        if(avg > 90){
+            document.write("수입니다. <br>");
+        }else if(avg > 80){
+            document.write("우입니다. <br>");
+        }else if(avg > 70){
+            document.write("미입니다. <br>");
+        }else if(avg > 60){
+            document.write("양입니다. <br>");
+        }else{
+            document.write("가입니다. <br>");
+        }
+    </script>
+</head>
+<body>
+    <script>
+        
+    </script>
+</body>
+</html>
