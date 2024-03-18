@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    // 클로저
+
+    function funNames(x){
+        let varName = ":: 요청한 " + x + "에 대한 구구단 :: " + "<br>";
+
+        return function(){
+            document.write(varName);
+
+            for(let i = 1; i<10; i++){
+                document.write(x + " * " + i + " = " + x*i + "<br>");
+            }
+        }
+    }
+
+    let funny = funNames(3);
+    funny();
+
+    function hapClouse(){
+        let sum = 0;
+        return function(num){
+            for(let i = 1; i <= num; i++){
+                sum += i;
+            }
+            document.write("sum : " + sum + "<br>");
+        }
+    }
+    
+    function hap(max){
+        let varName = ":: 요청한 1부터 " + max + "까지의 합 :: ";
+        return function(){
+            let sum = 0;
+            for(let i = 1; i <= max; i++){
+                sum += i;
+            }
+            document.write(varName + sum + "<br>");
+        }
+    }
+
+    fun = hapClouse();
+    fun(10);
+    
+    fun = hapClouse();
+    fun(100);
+
+    fun = hap(10);
+    fun();
+
+    fun = hap(100);
+    fun();
+</script>
+</head>
+<body>
+</body>
+</html>

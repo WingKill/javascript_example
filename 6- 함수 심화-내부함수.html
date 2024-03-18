@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    /* 
+     *  내부함수
+     *  함수 안의 함수
+     */
+
+    function outFun(width, height){
+        console.log("width : " + width);
+        console.log("height : " + height);
+
+        function triangle(){
+            return (width * height)/2.0 ;
+        }
+
+        function rectangle(){
+            return (width * height);
+        }
+
+        function circle(){
+            return width * width * Math.PI;
+        }
+
+        console.log(triangle());
+        console.log(rectangle());
+        console.log(circle());
+    }
+
+    let sod = outFun(7,5);
+    document.write(sod.circle());
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script> 
+
+        var varArr;
+
+        function funArgument(){
+            return arguments;
+        }   
+        
+        varArr = funArgument(1,2,3,4);
+        console.log(varArr);
+        console.log(varArr.length);
+        
+        document.write("<hr>");
+        for(let i in varArr){
+            document.write(varArr[i] + " ");
+        }
+        document.write("<hr>");
+        varArr = funArgument(1,2,3,4,5,6,7,8);
+        for(let i in varArr){
+            document.write(varArr[i] + " ");
+        }
+
+        document.write("<hr>");
+        // 명시(선언)적 함수 생성
+        function funName(){
+            document.write("명시적 함수입니다." + "<br>");
+        }
+
+        funName();
+        funName();
+
+        // 익명 함수
+
+        var funAnonymous = function(){
+            document.write("익명 함수입니다. " + "<br>");
+        }
+
+        console.log(typeof funAnonymous);
+
+        funAnonymous();
+        funAnonymous();
+
+        console.log("funName 함수 보기 : \n" +  funName);
+        console.log("funName 함수 실행 : \n" +  funName());
+
+        console.log("funAnonymous 함수 보기 : \n" +  funAnonymous);
+        console.log("funAnonymous 함수 실행 : \n" +  funAnonymous());
+
+        function threePlus(x,y,z){
+            document.write("x : " + x);
+            document.write(", y : " + y);
+            document.write(", z : " + z);
+            document.write("<hr>");
+
+            let result = x + y + z;
+            return result;
+        }
+
+        let sum = threePlus(1,2,3);
+        document.write(sum + "<br><br>");
+
+        sum = threePlus(1,2,3,4);
+        document.write(sum + "<br><br>");
+
+        sum = threePlus(1,2);
+        document.write(sum + "<br><br>");
+
+        function starPrint(num){
+            for(let i = 1; i <= num; i++){
+                for(let j = 1; j <= i; j++){
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+            document.write("<br>");
+        }
+
+        starPrint(5);
+
+        starPrint(6);
+
+        let hap = function(max){
+            // let num = 0;
+
+            // let sum = 0;
+            // while(num <= max){
+            //     sum = sum + num;
+            //     num++;
+            // }
+
+            let sum = 0;
+            for(let i = 1; i <= max ; i++){
+                sum = sum + i;
+            }
+
+            return document.write(sum);
+        }
+
+        hap(10);
+    </script>
+</head>
+<body>
+</body>
+</html>

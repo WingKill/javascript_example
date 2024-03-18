@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    /* 
+     *  콜백함수
+     *  매개 변수로 함수를 전달.
+     */
+
+    function sayHello(name, callback){
+        document.write(name + "님");
+        document.write(callback() + "<br>");
+    }
+
+    sayHello("홍길동", function(){
+        return " 좋은 아침입니다.";
+    });
+
+    sayHello("홍길순", function(){
+        return " 좋은 점심입니다.";
+    });
+
+    sayHello("홍길동", function(){
+        return " 좋은 저녁입니다.";
+    });
+
+    function add(num1, num2, fun){
+        fun(num1 + num2);
+    }
+
+    function sub(num1, num2, fun){
+        fun(num1 - num2);
+    }
+
+    add(1,2,function(result){
+        document.write(result);
+    });
+
+    document.write("<hr>")
+
+    sub(1,2,function(result){
+        document.write(result);
+    });
+
+    document.write("<hr>");
+    document.write("<hr>");
+
+    function print(num){
+        document.write(num + "번째 헬로월드" + "<br>");
+    }
+
+    function callThreeTimes(callback){
+        document.write("[실행결과]" + "<br>");
+        for(let i = 0; i< 3; i++){
+            callback(i);
+        }
+    }
+
+    callThreeTimes(print);
+    /* 
+    [실행결과]
+    0번째 헬로월드
+    1번째 헬로월드
+    2번째 헬로월드
+    */
+
+
+    function starPrint(callback){
+        document.write("<hr>");
+        callback();
+    }
+
+    function triangleStarPrint(){
+        for(let i = 1; i<= 5; i++){
+            for(let j = 1; j<= i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+
+    function triangleReverseStarPrint(){
+        for(let i = 1; i<= 5; i++){
+            for(let j = 0; j<= 5 - i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+
+    starPrint(triangleStarPrint);
+    /* 
+        *
+        **
+        ***
+        ****
+        *****
+    */
+    starPrint(triangleReverseStarPrint);
+    /* 
+        *****
+        ****
+        ***
+        **
+        *
+    */
+    let triangle = function(){
+        for(let i = 1; i<= 5; i++){
+            for(let j = 1; j<= 5 - i; j++){
+                document.write("&nbsp;");
+            }
+            for(let j = 1; j<= i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+    starPrint(triangle);
+
+    let triangleReverse = function(){
+        for(let i = 1; i<= 5; i++){
+            for(let j = 1; j < i; j++){
+                document.write("&nbsp;");
+            }
+            for(let j = 0; j<= 5 - i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+
+    starPrint(triangleReverse);
+
+    let bigTriangle = function(){
+        for(let i = 1; i<= 5; i++){
+            for(let j = 0; j < 5 - i; j++){
+                document.write("&nbsp;");
+            }
+            for(let j = 1; j< 2*i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+
+    starPrint(bigTriangle);
+
+    document.write("<hr>");
+    
+    </script>
+</head>
+<body>
+</body>
+</html>

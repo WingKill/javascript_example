@@ -24,15 +24,83 @@
         //     document.write("<hr>");
         //     console.log("\n");
         // }
+
+        // 1 ~ 10까지의 합
+        var sum = 0;
+        for(var i = 1; i<= 10; i++){
+            sum = sum + i;
+        }
+        document.write("sum : " + sum + "<br>");
+
+        sum = 0;
+
+        // 1~10 까지 짝수들의 합
+
+        // for(var i = 1; i<=10 ; i++){
+        //     if(i%2 == 0)
+        //         sum = sum + i;
+        // }
+
+        for(var i = 1; i<=10 ; i++){
+            if(i%2 != 0)
+                continue;
+            sum = sum + i;
+        }
+        document.write("짝수 sum : " + sum + "<br>");
+
+        //  1~ 100 중 7의 배수이자 5의 배수
+        for(var i = 1; i<=100 ; i++){
+            if(i%5 ==0 && i%7 ==0){
+                document.write("첫 7의 배수이자 5의 배수 : " + i + "<br>");
+                break;
+            }                
+        }
+
+        var count = 0;
+        while(count<5){
+            document.write("Hello World <br>");
+            count++;
+        }
+
+        // var dan = prompt("dan을 입력하세요", "2~9까지");
+        // dan = Number(dan);
+        // while(true){
+        //     if(dan > 0 && dan < 10){
+        //         document.write("<hr>" + dan+"단 <hr>");
+        //         for(var i=1; i<=9 ;i++){
+        //             document.write(dan + " * " + i + " = " + dan*i + "<br>");
+        //         }                    
+        //         document.write("<hr>");
+        //         break;
+        //     }else{
+        //         document.write("잘못 입력하셨습니다.");
+        //         break;
+        //     }
+        // }
+        
+        // count = 1;
+        // while(count < 10){
+        //     document.write(dan + " * " + count + " = " + dan*count + "<br>");
+        //     count++;
+        // }
+
+        // count = 0;
+        // do{
+        //     document.write("Hello World <br>");
+        //     count++;
+        // }while(count<5);
+        document.write("<hr>" + "짝수단")    
         document.write("<table><tr>");
         for(let i = 2; i <= 9 ; i++){
-            document.write("<td class=\"dan\" >"+i + "단</td>");            
+            if(i % 2 == 0) // 짝수단 출력 시 필요 조건
+                document.write("<td class=\"dan\" >"+i + "단</td>");            
         }   
         document.write("</tr>");
         for(let j = 1; j <= 9; j++){
             document.write("<tr>");
             for(let k = 2; k <= 9 ; k++){
-                document.write("<td class=\"list\" >" + k + " * " +  j + " = " + j * k + "</td>");
+                if(k % 2 ==0)
+                    document.write("<td class=\"list\" >" + k + " * " +  j + " = " + j * k + "</td>");
             }
             document.write("</tr>");
         } 
@@ -57,6 +125,9 @@
     </style>
 </head>
 <body>
+    <hr>
+    <hr>
+    일반 구구단
     <table>
         <tr>            
             <script>
