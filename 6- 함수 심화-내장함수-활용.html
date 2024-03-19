@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    /* 
+        내장함수
+    */
+
+    // alert("내장함수");
+    // console.log("내장함수 : 기본적으로 제공하는 함수");
+
+    // eval 함수
+    // 문자열을 코드(소스)로 이용(실행)
+    // 사용금지 -> 악용 여지가 있기 때문.
+    // var varEval = console.log("내장함수 : 기본적으로 제공하는 함수");
+    // eval(varEval);
+    // eval("document.write(\"<p>eval함수</p>\")");
+
+    /* 시간 관련 함수 */
+
+    // 익명 함수 활용
+    var timeoutId = setTimeout(function(){
+        alert("3초 후 실행됩니다.");
+    }, 3000);
+
+    // 명시적 함수 활용
+    function ThreeTimer(){
+        alert("3초 후 실행됩니다.");
+    }
+    var timeoutIds = setTimeout(ThreeTimer, 3000);
+
+    clearTimeout(timeoutId);
+    clearTimeout(timeoutIds);
+
+    function intervalTwoSecond(){
+        document.write("안녕하세요" + "<br>");
+    }
+
+    var intervalId = setInterval(intervalTwoSecond,2000);
+    clearInterval(intervalId);
+    
+    function endFunction(){
+        clearInterval(printIntervalId);
+        console.log("종료");
+    }
+
+    var printTimeOutId = setTimeout(endFunction,7000);
+
+    var printIntervalId = setInterval(function(){
+        console.log("*");
+    }, 2000);
+
+    
+    function nowDateTimeCall(){
+        var date = new Date();
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        var second = date.getSeconds();
+
+        // document.write("현재 시각은 "+ date.getHours() + "시 " + date.getMinutes() + "분 " + date.getSeconds() + "초입니다. " + "<br>");
+        // location.reload();
+        document.body.innerHTML = "현재 시각은 "+ hour + "시 " + minute + "분 " + second + "초입니다. " + "<br>";
+    }
+    
+    var nowDate = setInterval(nowDateTimeCall, 1000);
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -150,6 +150,37 @@
 
     document.write("<hr>");
     
+    function starPrint2(num, callback){
+        document.write("<br>");
+        callback(num);
+    }
+
+    function triangleStarPrint2(num){
+        for(let i = 1; i<= num; i++){
+            for(let j = 1; j<= i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    } 
+
+    function triangleReverseStarPrint2(num){
+        for(let i = 1; i<= num; i++){
+            for(let j = 0; j<= num - i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+    }
+
+    starPrint2(4,triangleStarPrint2);
+
+    starPrint2(5,triangleStarPrint2);
+
+    starPrint2(5,triangleReverseStarPrint2);
+
+    starPrint2(4,triangleReverseStarPrint2);
+    
     </script>
 </head>
 <body>

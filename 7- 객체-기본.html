@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var funName = function(){};
+        // document.write(typeof funName + "<br>");
+
+        // var objName = {};
+        // document.write(typeof objName + "<br>");
+
+        // var objData = {
+        //     num : 123,
+        //     str : "abc",
+        //     boo : true,
+        //     obj : {},
+        //     fun : function(){},
+        //     arr : [1,2,3],
+        //     ude : undefined,
+        // };
+
+        // document.write(typeof objData + "<br>");
+        // document.write(objData.num + "<br>");
+        // document.write(objData.str + "<br>");
+        // document.write(objData.boo + "<br>");
+        // document.write(objData.obj + "<br>");
+        // document.write(objData.fun + "<br>");
+        // document.write(objData.arr + "<br>");
+        // document.write(objData.ude + "<br>");
+
+        // var objCar ={
+        //     width : "3m",
+        //     height : "2m",
+        //     cc : "2000cc",
+        //     energy : 100,
+        //     speed : function(power){
+        //         return this.energy * power;
+        //     },
+        // };
+
+        // document.write(objCar.width + "<br>");
+        // document.write(objCar.height + "<br>");
+        // document.write(objCar.speed(2) + "<br>");
+
+        // // grade 객체를 생성 후, 국 영 수를 입력받아 총점과 평균을 나오게 하시오.
+        // // - 객체 내에서 해결 가능하도록.
+
+        /* 내가 한 방법 */
+
+        // var grade = {
+        //     kor : Number(prompt("국어 성적 입력하세요.")),
+        //     eng : Number(prompt("영어 성적 입력하세요.")),
+        //     math : Number(prompt("수학 성적 입력하세요.")),
+        //     total : function(){
+        //         return (this.kor + this.eng + this.math);
+        //     },
+        //     avg : function(){
+        //         return (this.total() / 3);
+        //     },
+        //     record : function(){
+        //         var avg = this.avg();
+        //         var recordStr = "";
+
+        //         if(avg >= 90){
+        //             recordStr = "수";
+        //         }else if(avg >= 80){
+        //             recordStr = "우";
+        //         }else if(avg >= 70){
+        //             recordStr = "미";
+        //         }else if(avg >= 60){
+        //             recordStr = "양";
+        //         }else{
+        //             recordStr = "가";
+        //         }
+        //         return recordStr;
+        //     }
+        // };
+
+        // document.write("총점 : " + grade.total() + "<br>");
+        // document.write("평균 : " + grade.avg() + "<br>");
+        // document.write("성적 : " + grade.record() + "<br>");
+
+        /* 선생님 방법 */
+        // var grade = {
+        //     kor : Number(prompt("국어 성적 입력하세요.")),
+        //     eng : Number(prompt("영어 성적 입력하세요.")),
+        //     math : Number(prompt("수학 성적 입력하세요.")),
+        //     getTotal : function(){
+        //         return (this.kor + this.eng + this.math);
+        //     },
+        //     getAvg : function(){
+        //         return ((this.kor + this.eng + this.math) / 3);
+        //     }
+        // };
+
+        // grade.kor = Number(prompt("국어 성적 입력하세요."));
+        // grade.eng = Number(prompt("영어 성적 입력하세요."))
+        // grade.math = Number(prompt("수학 성적 입력하세요."))
+
+        // document.write("총점 : " + grade.getTotal() + "<br>");
+        // document.write("평균 : " + grade.getAvg() + "<br>");
+        
+        /* 객체 접근 */
+        var objNation = {
+            nation : "Korea",
+            capital : "Seoul",
+            language : "hangeul",
+            population : 5100000000,
+        }
+
+        document.write(objNation.nation + "<br>");
+        document.write(objNation["nation"] + "<br>");
+
+        document.write(objNation.population + "<br>");
+        document.write(objNation["population"] + "<br>");
+
+        var print = "";
+        for(var key in objNation){
+            print = print + key + " : " + objNation[key] + "\n";
+        }
+        document.write(print + "<br>");
+        
+        /* 
+            객체에 속성 추가 및 삭제
+        */
+
+        var person = {
+            name : "Hong Gil Dong",
+            nation : "Korea",
+            gender : "men",
+            character : "good",
+        };
+
+        // 속성 추가
+        person.talent = "fencing";
+        print = "";
+
+        for(var key in person){
+            print = print + key + " : " + person[key] + "\n";
+        }
+
+        document.write(print + "<br>");
+
+        // 속성 삭제
+        delete person.talent;
+        print = "";
+
+        for(var key in person){
+            print = print + key + " : " + person[key] + "\n";
+        }
+
+        document.write(print + "<br>");
+
+        /* 
+            in, with 키워드
+        */
+        document.write("<hr>");
+
+        document.write(("nattion" in person) + "<br>" );
+        document.write(("nation" in person) + "<br>" );
+
+        with(person){
+            document.write(name + "<br>");
+            document.write(nation + "<br>");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
