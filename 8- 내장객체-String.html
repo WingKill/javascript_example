@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/hello.js" type="text/javascript"></script>
+    <script>
+        /* 
+        내장객체 String
+        */
+
+        let strEn = "ABCDE";
+        let strKo = new String("가나다라마바사");
+        String.prototype.temp = 123;
+
+        document.write(strEn + "<br>");
+        document.write(strKo + "<br>");
+
+        document.write(strEn.length + "<br>");
+        document.write(strKo.length + "<br>");
+
+        document.write(strEn.temp + "<br>");
+        document.write(strKo.temp + "<br>");
+
+        document.write("charAt() : " + strEn.charAt(3) + "<br>");
+        document.write("indexOf() : " + strEn.indexOf("E") + "<br>");
+        document.write("lastIndexOf() : " + strEn.lastIndexOf("E") + "<br>");
+        document.write("lastIndexOf() : " + strEn.lastIndexOf("D") + "<br>");
+        document.write("concat() : " + strEn.concat("FFF") + "<br>");
+        document.write("replace() : " + strEn.replace("A","aaa") + "<br>");
+
+        document.write("split() : " + strEn.split("C") + "<br>");
+        document.write("slice() : " + strEn.slice(2,4) + "<br>");
+
+        var lower = strEn.toLowerCase();
+        document.write("toLowerCase() : " + lower + "<br>");
+
+        var upper = strEn.toUpperCase();
+        document.write("toUpperCase() : " + lower + "<br>");
+
+        if(strEn == strKo){
+            document.write("같다" + "<br>");
+        }else{
+            document.write("다르다" + "<br>");
+        }
+
+        if(strEn === "ABCDE"){
+            document.write("같다" + "<br>");
+        }else{
+            document.write("다르다" + "<br>");
+        }
+
+        /* 
+        ==, === 차이
+        */
+
+        var a = 1;
+        var b = "1";
+
+        document.write((a==b) + "<br>");
+        document.write((a===b) + "<br>");
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

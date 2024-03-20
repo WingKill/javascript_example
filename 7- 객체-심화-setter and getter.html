@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/hello.js" type="text/javascript"></script>
+    <script>
+        /* 
+            getter, setter 함수(정보은닉)
+        */
+
+        function BMICalculator(height, weight) {
+
+            this.height = height;
+            this.weight = weight;
+            this.bmi = function () {
+                return (this.weight / (this.height * this.height)).toFixed(2);
+            }
+        }
+
+        var myBMI = new BMICalculator(1.68, 80);
+        document.write(myBMI.bmi() + "<br>");
+
+        function BMICalculator2() {
+            var height = 0;
+            var weight = 0;
+
+            this.bmi = function () {
+                return (this.weight / (this.height * this.height)).toFixed(2);
+            }
+
+            this.getHeight = function () {
+                return this.height;
+            }
+
+            this.setHeight = function (height) {
+                if(isNaN(height)){ // Not a number
+                    document.write("숫자가 아닙니다 !!" + "<br>");
+                }else{
+                    this.height = height;
+                }                
+            }
+
+            this.getWeight = function(){
+                return this.weight;
+            }
+
+            this.setWeight = function(weight){
+                if(isNaN(weight)){ 
+                    document.write("숫자가 아닙니다 !!" + "<br>");
+                }else{
+                    this.weight = weight;
+                }                
+            }
+        }
+
+        myBMI = new BMICalculator2();
+        myBMI.setHeight(1.68);
+        myBMI.setWeight(80);
+        document.write(myBMI.bmi() + "<br>");
+
+        let 철수 = new Grade2(); 
+        철수.setKor(); // - or 100 초과 숫자 : 잘못된 입력입니다.
+        철수.setEng();
+        철수.setMath();
+
+        function Grade2(){
+            let kor = 0;
+            let eng = 0;
+            let math = 0;
+
+            this.getTotal = function(){
+                return this.kor + this.eng + this.math;
+            }
+
+            this.getAvg = function(){
+                return this.getTotal() / 3;
+            }
+
+            this.getKor = function(){
+                return this.kor;
+            }
+
+            this.setKor = function(kor){
+                if(isNaN(kor)){
+                    document.write("숫자가 아닙니다." + "<br>");
+                }else if(kor < 0 || kor > 100){
+                    document.write("잘못된 입력입니다." + "<br>");
+                }else{
+                    this.kor = kor;
+                }
+            }
+
+            this.getKor = function(){
+                return this.kor;
+            }
+
+            this.setKor = function(kor){
+                if(isNaN(kor)){
+                    document.write("숫자가 아닙니다." + "<br>");
+                }else if(kor < 0 || kor > 100){
+                    document.write("잘못된 입력입니다." + "<br>");
+                }else{
+                    this.kor = kor;
+                }
+            }
+
+            this.getEng = function(){
+                return this.eng;
+            }
+
+            this.setEng = function(eng){
+                if(isNaN(eng)){
+                    document.write("숫자가 아닙니다." + "<br>");
+                }else if(eng < 0 || eng > 100){
+                    document.write("잘못된 입력입니다." + "<br>");
+                }else{
+                    this.eng = eng;
+                }
+            }
+
+            this.getMath = function(){
+                return this.math;
+            }
+
+            this.setMath = function(math){
+                if(isNaN(math)){
+                    document.write("숫자가 아닙니다." + "<br>");
+                }else if(math < 0 || math > 100){
+                    document.write("잘못된 입력입니다." + "<br>");
+                }else{
+                    this.math = math;
+                }
+            }
+        }
+        
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

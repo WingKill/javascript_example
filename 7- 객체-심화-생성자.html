@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/hello.js" type="text/javascript"></script>
+    <script>
+    // 생성자를 이용한 객체 생성
+        function Airplane(name,color,speed){
+            this.name = name;
+            this.color = color;
+            this.speed = speed;
+            this.fly = function(){
+                return this.speed + " fly!";
+            }
+        }
+
+        var boeing747 = new Airplane("boeing747","white/blue","600km/h");
+        document.write(boeing747.name + "<br>");
+        document.write(boeing747.color + "<br>");
+        document.write(boeing747.speed + "<br>");
+        document.write(boeing747.fly() + "<br>");
+
+        var boeing748 = new Airplane("boeing748","white/blue","600km/h");
+        document.write(boeing747.name + "<br>");
+        document.write(boeing747.color + "<br>");
+        document.write(boeing747.speed + "<br>");
+        document.write(boeing747.fly() + "<br>");
+
+        /*  헷갈리는 포인트
+        1. 일반 함수 호출과 함수를 new 했을 때의 차이
+        */
+
+        function abc(){
+            console.log("aaaaaa");
+        };
+        console.log(typeof abc);
+        console.log(typeof new abc()); // -> { }
+
+        /* 
+        함수 이름의 첫 글자는 대문자로 시작한다.
+        반드시 new 연산자를 붙여 실행한다.
+        */ 
+
+        // function User(name){
+        //     // this = { }; (빈 객체가 임시적으로 만들어짐)
+        //     // 새로운 프로퍼티를 this에 추가함
+        //     this.name = name;
+
+        //     // return this; (this가 암시적으로 반환됨)
+        // }
+
+        let user = new User("홍길동");
+        document.write(user.name + "<br>");
+
+        function Grade(kor, eng, math){
+            this.kor = kor;
+            this.eng = eng;
+            this.math = math;
+            this.sum = function(){
+                return kor + eng + math;    
+            }
+            this.avg = function(){
+                return this.sum() / 3;
+            }
+            this.record = function(){
+                let recordStr = "";
+                let avg = this.avg();
+                if(avg >= 90){
+                    recordStr = "수";
+                }else if(avg >= 80){
+                    recordStr = "우";
+                }else if(avg >= 70){
+                    recordStr = "미";
+                }else if(avg >= 60){
+                    recordStr = "양";
+                }else{
+                    recordStr = "가";
+                }
+                return recordStr;
+            };
+        }
+
+        let 철수 = new Grade(70,80,90); // 총점, 평균, 성적 내기
+        document.write(철수.sum() + "<br>");
+        document.write(철수.avg() + "<br>");
+        document.write(철수.record() + "<hr>");
+
+        function User(name){
+            this.sayHi = function(){
+                document.write("제 이름은 " + name + "입니다." + "<br>");
+            }
+        }
+
+        let bora = new User("이보라");
+        bora.sayHi(); // 제 이름은 이보라입니다.
+
+        let songhee = new User("송희");
+        songhee.sayHi(); // 제 이름은 송희입니다.
+
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

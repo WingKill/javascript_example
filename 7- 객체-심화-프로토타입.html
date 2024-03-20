@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/hello.js" type="text/javascript"></script>
+    <script>
+        /* 
+            프로토타입(prototype)
+        */
+
+        function Scoring(player, scoreFirst, scoreSecond, scoreThird) {
+            this.player = player;
+            this.scoreFirst = scoreFirst;
+            this.scoreSecond = scoreSecond;
+            this.scoreThird = scoreThird;
+
+            this.getTotal = function () {
+                return scoreFirst + scoreSecond + scoreThird;
+            }
+
+            this.getAverage = function () {
+                return (this.getTotal() / 3).toFixed(3);
+            }
+        }
+
+        var hong = new Scoring("홍길동", 99, 90, 92);
+        document.write(hong.player + "의 총점 : " + hong.getTotal() + "<br>");
+        document.write(hong.player + "의 총점 : " + hong.getAverage() + "<br>");
+
+        var hong2 = new Scoring("홍길순", 80, 90, 85);
+        document.write(hong2.player + "의 총점 : " + hong2.getTotal() + "<br>");
+        document.write(hong2.player + "의 총점 : " + hong2.getAverage() + "<br>");
+
+        document.write("<hr>");
+
+        function Scoring2(player, scoreFirst, scoreSecond, scoreThird) {
+            this.player = player;
+            this.scoreFirst = scoreFirst;
+            this.scoreSecond = scoreSecond;
+            this.scoreThird = scoreThird;
+        }
+
+        Scoring2.prototype.getTotal = function () {
+            return this.scoreFirst + this.scoreSecond + this.scoreThird;
+        }
+
+        Scoring2.prototype.getAverage = function () {
+            return (this.getTotal() / 3).toFixed(3);
+        }
+
+        var hong3 = new Scoring2("홍길동", 99, 90, 92);
+        document.write(hong3.player + "의 총점 : " + hong3.getTotal() + "<br>");
+        document.write(hong3.player + "의 총점 : " + hong3.getAverage() + "<br>");
+
+        var hong4 = new Scoring2("홍길순", 80, 90, 85);
+        document.write(hong4.player + "의 총점 : " + hong4.getTotal() + "<br>");
+        document.write(hong4.player + "의 총점 : " + hong4.getAverage() + "<br>");
+
+        function Circle() {
+            let radius = 0;
+
+            this.setRadius = function (radius) {
+                this.radius = radius;
+            }
+
+            this.getRadius = function () {
+                return this.radius;
+            }
+
+            this.getArea = function () {
+                let area = this.radius * this.radius * Math.PI;
+                document.write(area + "<br>");
+                return area;
+            }
+        }
+
+        function Rectangle() {
+            let width = 0;
+            let height = 0;
+
+            this.setWidth = function (width) {
+                this.width = width;
+            }
+
+            this.getWidth = function () {
+                return this.width;
+            }
+
+            this.setHeight = function (height) {
+                this.height = height;
+            }
+
+            this.getHeight = function () {
+                return this.height;
+            }
+        }
+
+        Rectangle.prototype.getArea = function () {
+            let area = this.width * this.height
+            document.write(area + "<br>");
+            return area;
+        }
+
+        var circle = new Circle();
+        circle.setRadius(10);
+        circle.getArea(); //원넓이 출력
+        var rec = new Rectangle();
+        rec.setWidth(10);
+        rec.setHeight(10);
+        rec.getArea(); //사각형 넓이 출력
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

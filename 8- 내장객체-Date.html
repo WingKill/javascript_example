@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/hello.js" type="text/javascript"></script>
+    <script>
+        /* 
+        내장객체 Date
+        */
+
+        // 시스템 날짜(OS)를 가져옴.
+        // var today = new Date();
+
+
+        // document.write(today.getFullYear() + "<br>");
+        // document.write(today.getMonth() + "<br>");
+        // document.write(today.getDate() + "<br>");
+        // document.write(today.getDay() + "<br>");
+        // document.write(today.getHours() + "<br>");
+        // document.write(today.getMinutes() + "<br>");
+        // document.write(today.getSeconds() + "<br>");
+
+        // 2010년 10월 10일 
+        var past1 = new Date(2010, 10, 10);
+        // 나머지를 정하지 않았으므로 0으로 표시될 것.
+        console.log(past1);
+
+        // 2010년 11월 10일 10시 10분 10초
+        var past2 = new Date(2010, 11, 10, 10, 10, 10);
+        console.log(past2);
+
+        var dayArr = new Array('월', '화', '수', '목', '금', '토', '일');
+
+        // 내가 작성한 코드
+        var todayDoing = function () {
+            var today = new Date();
+            var day = '';
+
+            for (var i = 0; i < dayArr.length; i++) {
+                if ((i + 1) == today.getDay()) {
+                    day = dayArr[i];
+                }
+            }
+            var todayStr = today.getFullYear() + "." + (today.getMonth()+1) + "." + today.getDate() + " " + day + "요일 " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            console.log(todayStr);
+        }
+
+        setInterval(todayDoing, 1000);
+
+        // 선생님 코드
+        function getNowDate(){
+            var nowDate = new Date();
+            var dayArr = new Array('월', '화', '수', '목', '금', '토', '일');
+            var print = '';
+
+            print = print + nowDate.getFullYear() + "년";
+            print += (nowDate.getMonth()+1) + "월";
+            print += nowDate.getDate() + "일 ";
+            print += dayArr[nowDate.getDay()-1] +  "요일 "; 
+            print += nowDate.getHours() + "시";
+            print += nowDate.getMinutes() + "분";
+            print += nowDate.getSeconds() + "초";
+
+            document.body.innerHTML = print;
+        }
+
+        setInterval(getNowDate,1000);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
