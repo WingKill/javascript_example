@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <title>JavaScript</title>
+      
+      <script>
+         window.onload = function(){
+            let plus = document.querySelector("#plus");
+            let minus = document.querySelector("#minus");   
+            let result = document.querySelector("#result");
+            
+            function plusHandler(e){
+               let current = parseInt(result.value);
+               current++;
+               result.value = current;
+            }
+
+            function minusHandler(e){
+               let current = parseInt(result.value);
+               current--;
+               result.value = current;
+            }
+
+            plus.addEventListener("click", plusHandler);
+            minus.addEventListener("click", minusHandler);
+         }
+      </script>
+      
+      <style>
+
+      </style>
+   </head>
+   
+   <body>
+   
+      <div>
+         갯수 
+         <input id="result" type="text" readonly="readonly" value="5"> 
+         <button id="plus">+</button>
+         <button id="minus">-</button>
+      </div>
+   
+   </body>
+
+</html>

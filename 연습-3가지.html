@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>JavaScript</title>
+
+   <script>
+      window.onload = function () {
+         let firstNumObj = document.querySelector("#num1");
+         let secondNumObj = document.querySelector("#num2");
+         let result1Obj = document.querySelector("#result1");
+
+         let plusButton = document.querySelector("#plus");
+
+         plusButton.addEventListener("click", function () {
+            result1Obj.value = (parseInt(firstNumObj.value) + parseInt(secondNumObj.value));
+         });
+
+         let fruits = document.querySelectorAll('input[name="fruit"]');
+         let fruitTotalObj = document.querySelector("#fruitTotal");
+         let result3Obj = document.querySelector("#result3");
+
+         function total2() {
+            let total = 0;
+            for (let member of fruits) {
+               if (member.checked) {
+                  let price = parseInt(member.value);
+                  total += price;
+               }
+            }
+            result3Obj.innerHTML = total;
+         }
+         fruitTotalObj.addEventListener("click", total2);
+      }
+   </script>
+</head>
+
+<body>
+   <h1>1. 연산</h1>
+   <div>
+      <input type="text" id="num1"> + <input type="text" id="num2"> = <input type="text" id="result1"
+         readonly="readonly"> <input type="button" id="plus" value="연산">
+   </div>
+   <h1>2. 총합 구하기</h1>
+   가격 : <input type="text" id="price"> X 수량
+   <select name="" id="count">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+   </select>
+   총합 : <span id="result2"></span>
+
+   <h1>3. 총합 구하기2</h1>
+   <ul>
+      <li>바나나(1000원)<input type="checkbox" name="fruit" value="1000"></li>
+      <li>사과(500원)<input type="checkbox" name="fruit" value="500"></li>
+      <li>배(1500원)<input type="checkbox" name="fruit" value="1500"></li>
+   </ul>
+   <button id="fruitTotal">총합 구하기</button><br>
+   선택된 총 가격 : <span id="result3"></span>
+
+   <script>
+      let priceObj = document.querySelector("#price");
+      let countObj = document.querySelector("#count");
+      let result2Obj = document.querySelector("#result2");
+      function total1() {
+         result2Obj.textContent = parseInt(priceObj.value) * parseInt(countObj.value);
+      }
+
+      priceObj.addEventListener("input", total1)
+      countObj.addEventListener("change", total1);
+
+
+   </script>
+</body>
+
+</html>

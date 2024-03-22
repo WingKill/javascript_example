@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>JavaScript</title>
+
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+         let texts = document.querySelector("#texts");
+         let result = document.querySelector("#result");
+         let count = 0;
+         console.log('texts.value : ' + typeof texts.value + '이고, ' + texts.value + '이다');
+ 
+         function counting() {
+            count = texts.value.length;
+            result.textContent = count;
+         }
+
+         texts.addEventListener("input", counting);
+      });
+   </script>
+</head>
+
+<body>
+   <h2>글자 수 세기</h2>
+   <textarea name="" id="texts" cols="30" rows="10"></textarea><br>
+   <small>입력 문자 수 : <span id="result"></span></small>
+</body>
+<script>
+   // let texts = document.querySelector("#texts");
+   // let result = document.querySelector("#result");
+   // let count = 0;
+
+   // console.log('texts.value : ' + typeof texts.value + '이고, ' + texts.value + '이다');
+
+   // function counting() {
+   //    count = texts.value.length;
+   //    result.textContent = count;
+   // }
+
+
+
+   // texts.addEventListener("input", counting);
+</script>
+
+
+</html>

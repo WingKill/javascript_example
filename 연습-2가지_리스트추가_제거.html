@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>JavaScript</title>
+
+   <script>
+      window.onload = function(){
+         let content = document.querySelector('input[name="content"]');
+         let addBtn = document.querySelector('#addBtn');
+         let removeBtn = document.querySelector('#removeBtn');
+         let list = document.querySelector('#list');
+
+         addBtn.addEventListener("click", function(){
+            // 생성
+            let li = document.createElement("li");
+            li.textContent = content.value;
+            list.appendChild(li);
+         });
+
+         removeBtn.addEventListener("click", function(){
+            if(content.value === "" || content.value === null){
+               alert("입력하세요.");
+            }else{
+               let items = list.querySelectorAll("li");
+               for(let i = 0 ; i < items.length ; i++){
+                  let li = items[i];    
+                  if(li.textContent === content.value){
+                     li.remove();
+                     break;
+                  }
+               }
+            }
+         });
+      }
+   </script>
+</head>
+
+<body>
+<input type="text" name="content"> <button id="addBtn">추가</button> <button id="removeBtn">삭제</button>
+<ul id="list"></ul>
+</body>
+
+</html>
