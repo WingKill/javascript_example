@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script>
+      // window.onload = function(){
+      //    document.write("아아아 1");
+      // }
+      
+      // window.onload = function(){
+      //    document.write("아아아 2");
+      // }
+      
+      // window.onload = function(){
+      //    document.write("아아아 3");
+      // }
+      // // 연속으로 나오게 하고 싶다면, onload의 경우에는 한 곳에 이어서 써야 한다.
+      // window.onload = function(){
+      //    document.write("아아아 1");
+      //    document.write("아아아 2");
+      //    document.write("아아아 3");
+      // }
+
+      // jquery의 경우에는 연속으로 사용해도 통합하여 결과가 출력된다.
+      // $(document).ready(function(){
+      //    document.write("아아아 1");
+      // });
+      // $(document).ready(function(){
+      //    document.write("아아아 2");
+      // });
+      // $(document).ready(function(){
+      //    document.write("아아아 3");
+      // });
+
+      $(document).ready(function(){
+         jQuery("*").css("fontSize","1.1em");  
+         $("li").css("color","#0000ff"); // 태그 선택자
+         $("#item").css("background","#ffff00").css("width","300px"); // 아이디 선택자
+         $(".seoul").css("background","#ff0000"); // 클래스 선택자
+         $("#wrap p").css("border","2px solid #cccccc"); // 후손 선택자
+         $("#wrap > p").css("border","2px solid #cccccc"); // 자손 선택자
+      });
+   </script>
+</head>
+<body>
+   <div id="wrap">
+      <p>jQuery selector</p>
+      <div id="centent">
+         <h1>centent</h1>
+         <p>ㄱㄴㄷㄹㅁㅂㅅㅇㅈㅊㅌ</p>
+         <p>ABCDEFGHIJKLMN</p>
+      </div>
+      <div id="item">
+         <ul>
+            <li class="seoul">서울</li>
+            <li class="gyeonggi_do">경기도</li>
+            <li>충청도</li>
+            <li>전라도</li>
+            <li>경상도</li>
+            <li>강원도</li>
+            <li>제주도</li>
+         </ul>
+      </div>
+   </div>
+</body>
+</html>

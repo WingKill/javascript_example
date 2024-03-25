@@ -51,7 +51,7 @@
          <div class="row">
             <div class="col-lg-4 py-1 d-flex justify-content-center">
                <div class="card" style="width: 18rem;">
-                  <img src="${player.image}" class="card-img-top" alt="...">
+                  <img name="playerImg" src="${player.image}" class="card-img-top" alt="...">
                   <div class="card-body text-center">
                      <h5 class="card-title">당신</h5>
                      <form id="rspForm" action="" method="post">
@@ -68,14 +68,14 @@
                   <img src="https://taegon.kim/wp-content/uploads/2018/05/image-5.png" class="card-img-top" alt="...">
                   <div class="card-body text-center">
                      <h5 class="card-title">심판</h5>
-                     <p>${player.result}</p>
+                     <p id="resultText">${player.result}</p>
                   </div>
                </div>
             </div>
 
             <div class="col-lg-4 py-1 d-flex justify-content-center">
                <div class="card" style="width: 18rem;">
-                  <img src="${computer.image}" class="card-img-top" alt="...">
+                  <img name="comImg" src="${computer.image}" class="card-img-top" alt="...">
                   <div class="card-body text-center">
                      <h5 class="card-title">컴퓨터</h5>
                      <!-- <c:if test="${computer.rsp != null}">
@@ -88,22 +88,72 @@
       </div>
       <script>
          let rspForm = document.querySelector("#rspForm");
+         let player = document.querySelector('input[name="rsp"]:checked');
+         let computer = new RspPlayer();
+         let playerImg = document.querySelector("#playerImg");
+         let comImg = document.querySelector("#comImg");
+
+         let arrRsp = ["가위", "바위", "보"];
+         let arrResult = ["당신이 이겼습니다.","서로 비겼습니다.","당신이 졌습니다."];
+         let rspImage =   ["http://49.247.158.208:9999/hjs/img/scissor.f9ef898c.jpg\r\n",
+                           "http://49.247.158.208:9999/hjs/img/rock.8b39a13f.jpg\r\n",
+                           "http://49.247.158.208:9999/hjs/img/paper.0b032424.jpg",
+                           "https://taegon.kim/wp-content/uploads/2018/05/image-5.png"];
+
+
+         function RspPlayer(){
+            this.rsp = function () {
+               // 컴퓨터가 사용하는 주사위 결과 텍스트                              
+               let myRspText = "";
+               let randomNum = parseInt(Math.random() * 3);
+               myRspText = rspText[randomNum];
+               return myRspText;
+            }
+         }
+
+         function rspImg(text){
+            for(let i = 0; i < rspImage; i++){
+               if(text == arrRsp[i]){
+                  text = rspImage[i];
+               }               
+            }
+
+            if(text == "" || text == undefined){
+               text = rspImage[3];
+            }
+            
+            return text;
+         }
+
          function rsp_game() {
             // 폼 전송을 중지하여 페이지를 새로고침하지 않음
             // "submit" 이벤트의 기본 동작인 페이지 새로고침을 중지
-            event.preventDefault();
+            // 해당 부분은 submit 버튼을 검색하며, 추가적으로 알게 된 정보라고 생각하자. submit 기본 기능은 필요한 상황이기 때문이다.
+            // event.preventDefault();
 
-            let rspPlayer = document.querySelector('input[name="rsp"]:checked');
-            let rspComputer = function(){
-               
+            let playerRsp = player.value;
+            let computerRsp = computer.rsp();
+            let result = "";
+
+            if (computerRsp == (playerRsp)) {
+               result = arrResult[1];
             }
-            
+
+            if ((computerRsp == (arrRsp[0]) && playerRsp == (arrRsp[1]))
+               || (computerRsp == (arrRsp[1]) && playerRsp == (arrRsp[2]))
+               || (computerRsp == (arrRsp[2]) && playerRsp == (arrRsp[0]))) {
+               result = arrResult[2];
+            } else if ((computerRsp == (arrRsp[0]) && playerRsp == (arrRsp[2]))
+               || (computerRsp == (arrRsp[1]) && playerRsp == (arrRsp[0]))
+               || (computerRsp == (arrRsp[2]) && playerRsp == (arrRsp[1]))) {
+               result = arrResult[0];
+            }
 
             
-         }                  
+         }
 
          rspForm.addEventListener("submit", rsp_game)
-         
+
       </script>
    </main>
    <footer class="text-center ">

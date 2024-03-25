@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script>
+      window.onload = function(){
+         jQuery("p").css("color","red");
+         $("p").css("font-weight","bolder");
+
+         let myJQ = jQuery("p");
+         myJQ.css("textDecoration","underLine");
+         myJQ.css("width","300px").css("border", "1px solid #ff0000");
+
+         $("p").css("fontSize","1.2em")
+               .css("height","300px")
+               .css("line-height","300px")
+               .css("text-align", "center");
+
+         // $("P").css("width","500px");
+         // $("P").css("height","300px");
+         // $("P").css("line-height","300px");
+         // $("P").css("border","1px solid #cccccc");
+
+         // let p =  document.querySelector("p");
+         // p.style = "color : red ; font-weight : bolder";
+      }
+   </script>
+</head>
+<body>
+   <p>안녕하세요 !! 제이쿼리</p>
+</body>
+</html>

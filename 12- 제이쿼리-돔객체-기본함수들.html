@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // each()
+      // $("p").each(function(index,item){
+      //   console.log(index);
+      //   console.log(item);
+      //   console.log(this); // 호출한 놈
+
+      //   if(index % 2 == 0){
+      //     $(item).css("background","#ff0000");
+      //   }else{
+      //     $(item).css("background","#cccccc");
+      //   }
+      // });
+
+      // html() / text()
+      console.log($("#htmlMethod").html()); // 자식 태그 다 가져옴
+      console.log($("#textMethod").text()); // 태그는 가져오지 못함
+
+      $("#htmlMethod").html("안녕하세요</br>"); // innerHtml
+      $("#htmlMethod").text("hello</br>"); // innerHtml
+
+      // addClass() 클래스 속성 추가
+      // removeClass() 클래스 속성 제거
+
+      // <div id="addClass" class="addCla"> addClass() 메서드 </div>
+
+      $("#addClass").addClass("addCla");
+      $(".addCla").css("background", "#ff0000");
+
+      // <div id="removeClass" class="remCla"> removeClass() 메서드 </div>
+      $(".remCla").css("background", "#00ff00");
+      $(".remCla").removeClass("remCla");
+
+      // attr() 속성 추가 
+      // removeAttr() 속성 제거
+      $("#attrMethod img").attr("src","img/logo.png");
+      console.log($("#attrMethod img").attr("src"));
+      $("#attrMethod img").removeAttr("src");
+      console.log($("#attrMethod img").attr("src"));
+
+      // css() CSS 속성 추가
+      $("#cssMethod").css("width","300px").css("height","100px");
+      $("#cssMethod").css("background","#ff0000");
+      console.log($("#cssMethod").css("width"));
+
+      // remove() 객체 제거
+      $("#removeMthod").remove();
+
+      // empty() 객체 내부 비우기
+      $("#emptyMthod").empty();
+    }); 
+  </script>
+</head>
+
+<body>
+  <p> Hello javascript! </p>
+  <p> Hello jQuery! </p>
+  <p> Hello node.js! </p>
+
+  <div id="htmlMethod">html() 메서드</div>
+  <div id="textMethod"> text() 메서드 </div>
+
+  <div id="addClass"> addClass() 메서드 </div>
+  <div id="removeClass" class="remCla"> removeClass() 메서드 </div>
+
+  <div id="attrMethod">
+    <img>
+    <br>
+    <img>
+  </div>
+
+  <div id="cssMethod"> CSS METHOD </div>
+
+  <div id="removeMthod"> Remove Object! </div>
+  <div id="emptyMthod"><p></p> Empty Object! </div>
+</body>
+
+</html>

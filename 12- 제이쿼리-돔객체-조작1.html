@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script>
+      $(document).ready(function(){
+         // let wrapObj = $("#wrap");
+         
+         // 객체 생성
+         // let divObj = $("<div>hello jQuery!</div>"); // 태그 내용을 다 넣는다
+
+         // divObj.appendTo(wrapObj);  // 자식.appendTo(부모);
+         // divObj.css("background","#0000ff");
+
+         $("<div>hello jQuery!</div>").appendTo($("#wrap")).css("background","#0000ff");
+         //$('<a href="https://www.google.com/" target="_blank">google</a><br>').appendTo($("#wrap"));
+         let wrapObj = $("#wrap");
+         let aObj = $('<a href="https://www.google.com/" target="_blank">google</a><br>');
+         aObj.appendTo(wrapObj);
+
+         // let imgObj = $('<img src="img/logo.png" / ><br>')
+         // imgObj.appendTo(wrapObj);
+         
+         let tempObj = {
+            src : "img/arm_mbed.png",
+            width : 297,
+            height : 124,
+            border : "5px",
+         }
+
+         let imgAObj = $("<img>", tempObj);
+         imgAObj.appendTo(wrapObj);
+      });
+   </script>
+</head>
+<body>
+   <div id="wrap"></div>   
+</body>
+</html>
