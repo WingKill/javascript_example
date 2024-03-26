@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#loginForm").submit(function(event){
+        if($("#uId").val() == ""){
+          alert("user ID blank!");
+          event.preventDefault();
+        }else if($("#uPw").val() == ""){
+          alert("user PW blank!");
+          event.preventDefault();
+        }else{
+          alert("login ok!");
+        }
+      });
+    });
+
+
+    // this : 호출한 놈
+    $(document).ready(function(){
+      function eventHandler(event){
+        console.log("click!");
+        console.log("this" + this);
+        $(this).css("color","red");
+        if(this.id == "objDiv"){
+          $(this).css("color","blue");
+        }
+        for(let key in event){
+          console.log(key + " : " + event[key]);
+        }        
+      }
+
+      $("#objDiv").click(eventHandler);
+      $("#objPar").click(eventHandler);
+    });
+  </script>
+</head>
+
+<body>
+  <form id="loginForm" action="http://www.google.com">
+    USER ID : <input id="uId" type="text" name="uId"><br>
+    USER PW : <input id="uPw" type="password" name="upw"><br>
+    <input id="sbmBtn" type="submit" value="SUBMIT">
+    <input id="resBtn" type="reset" value="RESET">
+ </form>  
+ <hr>
+ <div id="objDiv">Object Division</div>
+ <p id="objPar">Object Paragraph</p>
+</body>
+
+</html>

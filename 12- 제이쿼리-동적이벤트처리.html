@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    $(document).ready(function () {
+      let bodyHtml = "<button id='btn'>버튼</button>"
+      $("body").append(bodyHtml);
+      $("#btn").click(function () {
+        alert("버튼이 클릭되었습니다.")
+      });
+    });
+
+    $(document).ready(function () {
+      // 정적클릭이벤트
+      // $("#mylang").children().click(function () {
+      //   $(this).remove();
+      // });
+
+      // 동적클릭이벤트
+      // 1
+      $(document).on("click","li",function(event){
+        $(event.target).remove();
+      });
+      // 2
+      $(document).on("click","li",function(){
+        $(this).remove();
+      });
+      //li를 이벤트로 추가
+      $("#mylang").append('<li>Jquery</li>');
+    });
+  </script>
+</head>
+
+<body>
+  <ul id="mylang">
+    <li>Java</li>
+    <li>Oracle</li>
+    <li>Jsp</li>
+    <li>Mysql</li>
+  </ul>
+</body>
+
+</html>

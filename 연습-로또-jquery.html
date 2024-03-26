@@ -23,7 +23,7 @@
                     numsData.add(parseInt(Math.random() * 45) + 1);
                 }
                 this.nums = Array.from(numsData);
-                this.lastNum = this.nums[6];
+                this.lastNum = this.nums[this.nums.length-1];
                 this.nums.pop();
                 return this.nums;
             }                
@@ -52,19 +52,31 @@
             let lottoLastNum = lotto.lastNum;
             console.log(lottoNum);
             console.log(lottoLastNum);
+
+            // 순전히, for문 안에서만 해결하려고 해서 이렇게 번거로워진 것.
+            // for문 실행 후, 남는 원본을 제거하는 방법을 취해도 됨.
+            // for (let i = 0; i < lottoNum.length; i++) {                
+            //     let lottoSix = $("#lottoSix").clone();
+            //     if (i === 0) {
+            //         lottoSix = $("#lottoSix");
+            //     }
+            //     lottoSix.find(".lottoNum").text(lottoNum[i]);
+            //     lottoSix.find("rect").css("fill", color(lottoNum[i]))   
+
+            //     if (i === 0) {
+            //         continue;
+            //     }
+            //     $("#lottoMain").append(lottoSix);
+            // }
+
             for (let i = 0; i < lottoNum.length; i++) {                
                 let lottoSix = $("#lottoSix").clone();
-                if (i === 0) {
-                    lottoSix = $("#lottoSix");
-                }
                 lottoSix.find(".lottoNum").text(lottoNum[i]);
                 lottoSix.find("rect").css("fill", color(lottoNum[i]))   
-
-                if (i === 0) {
-                    continue;
-                }
                 $("#lottoMain").append(lottoSix);
             }
+            // 첫 자식을 제거하면 된다. 해당 자식에는 값이 들어가지 않으니까. 
+            $("#lottoMain > div:first-child").remove();
 
             let lottoLast = $("#lottoLast");
             lottoLast.find("svg").addClass("img-thumbnail");

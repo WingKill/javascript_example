@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+   <script>
+      $(document).ready(function () {
+         $(document).on("click", "#numPlus", function () {
+            $("input[name='num3']").val(parseInt($("input[name='num1']").val()) + parseInt($("input[name='num2']").val()));
+         });
+
+         // $(document).on("change", "#quantity", function(){
+         //    $("#total").text(Number($("#price").val()) * Number($("#quantity").val()));
+         // });
+         $("#quantity").change(function(){
+            $("#total").text(Number($("#price").val()) * Number($("#quantity").val()));
+         });
+
+         $("#btnTotal").click(function(){
+            let sum = 0;
+            // $(".fruit:checked").each(function(){
+            //    sum = sum + Number($(".fruit:checked").val());
+            // });
+            $("input:checked").each(function(index,item){
+               //sum += Number(item.value);
+               sum += Number($(item).val());
+            });            
+            $("#totalPrice").text(sum);  
+         });
+
+         $("#add").click(function(){
+            // let li = "<li>" +  $("#words").val() + "</li>";
+            if($("#words").val() == ""){
+               alert("입력하세요.");
+               return;
+            }
+            let li = $("<li>").text($("#words").val());
+            $("#uList").append(li);
+         });
+      });
+   </script>
+</head>
+
+<body>
+   <input name='num1' type='text'> + <input name='num2' type='text'> = <input name='num3' type='text'
+      readonly="readonly"> <button id='numPlus'>버튼</button>"
+   <h1>2. 총합 구하기</h1>
+   가격<input type="text" id="price" value="2500">X
+   수량
+   <select id="quantity">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+   </select>
+   총합:<span id="total"></span>
+   <br>
+   <h1>3. 총합 구하기2 (선택된 값만)</h1>
+   <div>
+      바나나(1000원) <input type="checkbox" name="fruit" class="fruit" value="1000"><br>
+      사과(500원) <input type="checkbox" name="fruit" class="fruit" value="500"><br>
+      배(1500원) <input type="checkbox" name="fruit" class="fruit" value="1500"><br>
+      <button id="btnTotal">총합구하기</button><br>
+      선택한 총가격:<span id="totalPrice"></span>
+   </div>
+   <h1>16.리스트 추가</h1>
+   <input type="text" id="words">
+   <button type="button" id="add" >추가</button><br>
+   <ui id="uList"></ui>
+   <br>
+   <br>
+   <br>
+</body>
+
+</html>

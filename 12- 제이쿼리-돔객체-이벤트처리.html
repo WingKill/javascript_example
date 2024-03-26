@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".logo").mousedown(function(){
+        console.log("이미지 마우스 다운 이벤트");
+      });
+
+      $(".logo").click(function(){
+        console.log("이미지 마우스 클릭 이벤트");
+      });
+    });
+
+    $(document).ready(function(){
+      $("#eDiv").dblclick(function(){
+        console.log("이미지 마우스 더블 클릭 이벤트");
+      });
+      
+      $("#eDiv").mousemove(function(){
+        console.log("이미지 마우스 이동 이벤트");
+      });
+
+      $("#eDiv").mouseover(function(){
+        console.log("이미지 마우스 나가기 이벤트");
+      });
+
+      $("#eDiv").click(function(){
+        let clone = $("#eDiv").clone();
+        //$("#eDiv").after(clone);
+        $("body").append(clone);
+      });
+    })
+  </script>
+  <style>
+    #eDiv{
+      width: 200px;
+      height: 100px;
+      background: #ff0000;
+      line-height: 100px;
+      text-align: center;
+      color: #ffffff;
+      font-weight: bolder;
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div>
+    <img class="logo" src="img/logo.png">
+  </div>
+
+  <div id="eDiv">제이쿼리 이벤트</div> -->
+
+  
+</body>
+
+</html>
