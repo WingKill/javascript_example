@@ -31,14 +31,55 @@
             $("#totalPrice").text(sum);  
          });
 
+         // $("#add").click(function(){
+         //    // let li = "<li>" +  $("#words").val() + "</li>";
+         //    if($("#words").val() == ""){
+         //       alert("입력하세요.");
+         //       return;
+         //    }
+
+         //    let li = $("<li>").text($("#words").val());
+         //    $("#uList").append(li);
+         // });
+
          $("#add").click(function(){
             // let li = "<li>" +  $("#words").val() + "</li>";
-            if($("#words").val() == ""){
+            let text = $("#words").val();
+            if(text == ""){
                alert("입력하세요.");
                return;
             }
-            let li = $("<li>").text($("#words").val());
-            $("#uList").append(li);
+
+            let list = $("<li class='plant'></li>");
+            list.text(text + "X");
+
+            $("#uList").append(list);
+         });
+
+         $(document).on("click","#uList .plant",function(){
+            $(this).remove();
+         });
+         
+         // $(document).on("change","#words-enter",function(){
+         //    let text = $("#words-enter").val();
+         //    let html = "";
+         //    for(let i = 0; i < text.length ; i++){               
+         //       html += "글자 '"+ text[i] + "' 의 아스키 코드 : " + text.charCodeAt(i) + "</br>";
+         //       $("#results-code").html(html);
+         //    }            
+         // });
+
+         // $(document).on("keyup","#words-enter",function(){
+         //    let text = $("#words-enter").val();
+         //    let html = "";
+         //    for(let i = 0; i < text.length ; i++){               
+         //       html += "글자 '"+ text[i] + "' 의 아스키 코드 : " + text.charCodeAt(i) + "</br>";
+         //       $("#results-code").html(html);
+         //    }            
+         // });
+
+         $(document).on("keyup","#words-enter",function(event){
+            $("#results-code").text(event.keyCode); 
          });
       });
    </script>
@@ -74,6 +115,9 @@
    <br>
    <br>
    <br>
+   <h1>13. 아스키코드 출력</h1>
+   <input type="text" id="words-enter"> <br>
+   <span id="results-code"></span> 
 </body>
 
 </html>
