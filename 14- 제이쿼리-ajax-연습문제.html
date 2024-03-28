@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(() => {
+
+      $.ajax({
+        type: "get",
+        url: "https://sample.bmaster.kro.kr/contacts?pageno=3&pagesize=10",
+        success: function (data) {
+          console.log(data);
+
+          $("#list-table").append(
+            $("<tr></tr>").append($("<td></td>").text("번호"))
+              .append($("<td></td>").text("이름"))
+              .append($("<td></td>").text("전화번호"))
+              .append($("<td></td>").text("주소"))
+              .append($("<td></td>").text("사진"))
+              .append($("<td></td>").text("삭제")));
+          $(data.contacts).each(function (index, item) {
+            $("#list-table").append(
+              $("<tr></tr>").append($("<td></td>").text(this.no))
+                .append($("<td></td>").text(this.name))
+                .append($("<td></td>").text(this.tel))
+                .append($("<td></td>").text(this.address))
+                .append($("<td></td>").append($("<img></img>").attr("src", this.photo)))
+                .append($("<td></td>").append($("<input></input>").attr("type", "button").attr("id", this.no).attr("class", "del-button").attr("value", "삭제"))));
+
+          });
+
+        },
+        error: function (xhr, textStatus, errorThrown) {
+          //  Error시, 처리 
+          alert(xhr);
+          alert(textStatus);
+          alert(errorThrown);
+        }
+      });
+
+      console.log($("<tr></tr>").children().children());
+      $(document).on("click", ".del-button", function () {
+        $(this).parent().parent().remove();
+      });
+    });    
+  </script>
+</head>
+
+<body>
+  <table id="list-table" class="text-center" border="1"></table>
+</body>
+
+</html>

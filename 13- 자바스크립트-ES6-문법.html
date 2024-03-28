@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    body {
+       background-color:  rgb(180, 180, 180);
+    }
+  </style>
   <script>
     // var let const
     // var study = true;
@@ -30,15 +35,15 @@
     let middlename = "길";
     let firstname = "동"
 
-    console.log(lastname + ", " + firstname + " " + middlename);
+    console.log(lastname + ", " + middlename + " " + firstname);
 
     let str = `
-              ${firstname} 님께,
+              ${middlename}${firstname} 님께,
 
               티켓 건을 구매해주셔서 감사합니다.
 
               주문 상세 정보 :
-                ${lastname} ${firstname} ${middlename}
+                ${lastname} ${middlename} ${firstname} 
                
                   
               공연 30분 전까지 배부처에서 티켓을 수령하시기 바랍니다.
@@ -51,28 +56,28 @@
 
     //디폴트 파라미터
     let person = {
-      name : "홍길동",
-      age : 35,
-    } 
+      name: "홍길동",
+      age: 35,
+    }
 
-    function greeting(message = "hi"){
+    function greeting(message = "hi") {
       console.log(message);
     }
 
     greeting(); // hi
     greeting("안녕하세요"); // 안녕하세요
 
-    function greeting2(human = person){
+    function greeting2(human = person) {
       console.log(`이름 : ${human.name} 나이 : ${human.age}`);
     }
 
     greeting2();
-    
+
     // 헷갈릴 수 있는 부분. 디폴트 파라미터에 있지만, 대입 객체에는 없는 프로퍼티의 경우엔 어떻게 되나?
     let person2 = {
-      name : "홍길순",
-    } 
-    
+      name: "홍길순",
+    }
+
     // age는 undefined 값이 나온다.
     greeting2(person2);
 
@@ -89,13 +94,13 @@
     console.log(date);
 
     let sandwich = {
-      bread : "플랫 화이트",
-      meat : "베이컨",
-      topping : ["치즈","상추","칠리소스"],
+      bread: "플랫 화이트",
+      meat: "베이컨",
+      topping: ["치즈", "상추", "칠리소스"],
     }
 
     // 구조 분해
-    let {bread, meat} = sandwich;
+    let { bread, meat } = sandwich;
     console.log(bread, meat);
 
     bread = "빵";
@@ -104,17 +109,17 @@
     console.log(sandwich.bread);
     console.log(sandwich.meat);
 
-    let func = ({topping} = sandwich) => {
+    let func = ({ topping } = sandwich) => {
       console.log(topping);
     };
 
     func(sandwich);
 
     // 배열 구조 분해
-    let [first,second] = ["용평","평창","홍천"];
+    let [first, second] = ["용평", "평창", "홍천"];
     console.log(first); // 용평
     console.log(second); // 평창
-    let [,,third] = ["용평","평창","홍천"];
+    let [, , third] = ["용평", "평창", "홍천"];
     console.log(third);
 
     // 객체 리터럴 개선
@@ -122,28 +127,92 @@
     let name = "백두산";
     let elevation = 2744;
 
-    let print = function(){
+    let print = function () {
       console.log(`${this.name}의 높이는 ${this.elevation}m 입니다.`);
     }
 
-    let funHike = {name,elevation,print};
+    let funHike = { name, elevation, print };
     console.log(funHike); // 객체 정보가 출력됨
     funHike.print();
 
     // 스프레드 연산자
-    let food = ["닭갈비","닭꼬치","닭강정"];
-    let drink = ["소주","맥주"];
+    let food = ["닭갈비", "닭꼬치", "닭강정"];
+    let drink = ["소주", "맥주"];
 
     // let mix = [...food,...drink];
     let mix = [food, drink];
     console.log(mix);
-    
-    
+
+
     // let [last] = food.reverse();
     // 위와 다르게, 아래는 원본 food가 유지됨.
     let [last] = [...food].reverse();
     console.log(last);
     console.log(food);
+
+    // 클래스
+    class User {
+      constructor(name) {
+        this.name = name;
+      }
+
+      sayHi() {
+        alert(this.name);
+      }
+    }
+
+
+    // // 함수 첫 글자는 대문자로 시작
+    // // 반드시 'new' 연산자를 붙여서 실행
+    // function User(name){
+    //   // this = {}; // 빈 객체가 임시적으로 만들어짐
+    //   // 새로운 프로퍼티를 this에 추가함
+    //   this.name = name;
+    //   // return this (this가 암시적으로 반환됨)
+    // }
+
+    alert(typeof User);
+    
+    let user = new User("홍길동");
+    document.write(user.name + "<br>");
+    user.sayHi();
+
+    class Grade{
+      constructor(kor,eng,math){
+        this.kor = kor;
+        this.eng = eng;
+        this.math = math;
+      }
+
+      getAvg(){
+        console.log((this.kor + this.eng + this.math) / 3.0);
+        return (this.kor + this.eng + this.math) / 3.0;
+      }
+      getTotal(){
+        console.log((this.kor + this.eng + this.math));
+        return this.kor + this.eng + this.math;
+      }
+      getGrade(){
+        let avg = this.getAvg();
+        let grade = "가";
+        if(avg >= 90 ){
+          grade = "수";
+        }else if(avg >= 80 ){
+          grade = "우";
+        }else if(avg >= 70 ){
+          grade = "미";
+        }else if(avg >= 60 ){
+          grade = "양";
+        }
+        console.log(grade);
+        return grade;
+      }
+    }
+
+    let grade = new Grade(90,60,90);
+    grade.getAvg();
+    grade.getTotal();
+    grade.getGrade();
 
     
   </script>
